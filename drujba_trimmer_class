@@ -133,3 +133,122 @@ class drujba {
                 + lungime_lama_cm + "cm " + viteza_lant_mps + "m/s";
     }
 }
+
+class trimmer {
+    String denumire;
+    float productivitate;
+    float alimentare;
+    int numar_elemente_taiere;
+    float[] stare_element_taiere;
+    float capacitate_cartus_fir;
+    float fir_ramas;
+    double garantie_de_functionare;
+    float latime_taiere_cm;
+    float turatie_rpm;
+
+    public void schimba_starea(rezultat a){
+        System.out.println("In urma utilizarii trimmerului " + denumire + " s-au tuns "
+                + a.produs + " unitati.\nS-a consumat " + a.curent_consumat
+                + "W.\nFir ramas: " + a.volum_ramas + " m.");
+        aparat.curent -= a.curent_consumat;
+        fir_ramas = a.volum_ramas;
+        stare_element_taiere = a.stare_perii;
+        garantie_de_functionare = a.functionare_ramasa;
+    }
+
+    void cost_mentenanta(rezultat c){
+        if (stare_element_taiere == null || stare_element_taiere.length == 0) {
+            System.out.println("Date insuficiente pentru calculul mentenantei.");
+            return;
+        }
+        double uzuraMedie = 0.0;
+        for (float v : stare_element_taiere) uzuraMedie += (1.0 - v);
+        uzuraMedie /= stare_element_taiere.length;
+
+        double costFir = (capacitate_cartus_fir - fir_ramas) * 3.5; // lei/m
+        double costCapTaiere = uzuraMedie * 70.0;
+        System.out.println("Cost mentenanta estimat (trimmer): " + (costFir + costCapTaiere) + " lei.");
+    }
+
+    public rezultat pornire(float cerinta){
+        double consum = alimentare * (cerinta / productivitate);
+        if (consum > aparat.curent) return null;
+
+        if (stare_element_taiere == null) return null;
+        float[] vector = new float[stare_element_taiere.length];
+        System.arraycopy(stare_element_taiere, 0, vector, 0, stare_element_taiere.length);
+
+        float uzura = (cerinta / productivitate);
+        for (int i = 0; i < vector.length; i++) {
+            if (vector[i] > uzura) vector[i] -= uzura;
+            else return null;
+        }
+
+        //consum fir: 0.2 m / unitate de cerinta
+        float consumFir = 0.2f * cerinta;
+        float firRamasNou = fir_ramas - consumFir;
+        if (firRamasNou < 0) return null;
+
+        float funcRamasa = (float)Math.max(0, garantie_de_functionare - cerinta / productivitate);
+
+        rezultat r = new rezultat(cerinta, consum, vector, firRamasNou, funcRamasa);
+        schimba_starea(r);
+        return r;
+    }
+
+    //Constructor implicit
+    trimmer(){
+        this.denumire = "";
+    }
+
+    //Constructor de copiere
+    trimmer(trimmer t){
+        this.denumire = t.denumire;
+        this.productivitate = t.productivitate;
+        this.alimentare = t.alimentare;
+        this.numar_elemente_taiere = t.numar_elemente_taiere;
+        this.stare_element_taiere = t.stare_element_taiere;
+        this.capacitate_cartus_fir = t.capacitate_cartus_fir;
+        this.fir_ramas = t.fir_ramas;
+        this.garantie_de_functionare = t.garantie_de_functionare;
+        this.latime_taiere_cm = t.latime_taiere_cm;
+        this.turatie_rpm = t.turatie_rpm;
+    }
+
+    //Constructor complet
+    trimmer(String denumire, float productivitate, float alimentare,
+            int numar_elemente_taiere, float[] stare_element_taiere,
+            float capacitate_cartus_fir, float fir_ramas,
+            double garantie_de_functionare, float latime_taiere_cm, float turatie_rpm){
+        this.denumire = denumire;
+        this.productivitate = productivitate;
+        this.alimentare = alimentare;
+        this.numar_elemente_taiere = numar_elemente_taiere;
+        this.stare_element_taiere = stare_element_taiere;
+        this.capacitate_cartus_fir = capacitate_cartus_fir;
+        this.fir_ramas = fir_ramas;
+        this.garantie_de_functionare = garantie_de_functionare;
+        this.latime_taiere_cm = latime_taiere_cm;
+        this.turatie_rpm = turatie_rpm;
+    }
+
+    public String toString(){
+        StringBuilder vect = new StringBuilder();
+        if (stare_element_taiere != null) {
+            for (int i = 0; i < stare_element_taiere.length; i++) {
+                vect.append(stare_element_taiere[i]);
+                if (i < stare_element_taiere.length - 1) vect.append(",");
+            }
+        }
+        return denumire + " " + productivitate + " " + alimentare + " "
+                + numar_elemente_taiere + " [" + vect + "] "
+                + capacitate_cartus_fir + "m " + fir_ramas + "m "
+                + garantie_de_functionare + "h "
+                + latime_taiere_cm + "cm " + turatie_rpm + "rpm";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+    }
+}
