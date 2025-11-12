@@ -1,1 +1,63 @@
+import java.util.Vector;
 
+abstract class aparat{
+    static double curent=425;
+    abstract public void schimba_starea(rezultat a);
+    abstract void cost_mentenanta(rezultat c);
+}
+class rezultat{
+    protected double produs;
+    protected double curent_consumat;
+    protected float[] stare_perii;
+    protected float volum_ramas;
+    protected double functionare_ramasa;
+    public rezultat(double produs,double curent_consumat,float[] stare_perii, float volum_ramas, float functionare_ramasa){
+        this.produs=produs;
+        this.curent_consumat=curent_consumat;
+        this.stare_perii=stare_perii;
+        this.volum_ramas=volum_ramas;
+        this.functionare_ramasa=functionare_ramasa;
+    }
+}
+
+class drujba {
+    String denumire;
+    float productivitate;
+    float alimentare;
+    int numar_elemente_taiere;
+    float[] stare_element_taiere;
+    float capacitate_rezervor_ulei;
+    float volum_curent_ulei;
+    double garantie_de_functionare;
+    float lungime_lama_cm;
+    float viteza_lant_mps;
+
+    public void schimba_starea(rezultat a) {
+        System.out.println("In urma utilizarii drujbei " + denumire + " s-au taiat " + a.produs
+                + " unitați.\nS-a consumat " + a.curent_consumat
+                + "W.\nUlei ramas: " + a.volum_ramas + " L.");
+        aparat.curent -= a.curent_consumat;
+        volum_curent_ulei = a.volum_ramas;
+        stare_element_taiere = a.stare_perii;
+        garantie_de_functionare = a.functionare_ramasa;
+    }
+
+    void cost_mentenanta(rezultat c){
+        if(stare_element_taiere == null || stare_element_taiere.length == 0){
+            System.out.println("Date insuficiente pentru calculul mentenantei.");
+            return;
+        }
+        double uzuraMedie = 0.0;
+        for (float v : stare_element_taiere) uzuraMedie += (1.0 - v);
+        uzuraMedie /= stare_element_taiere.length;
+        double costLant = uzuraMedie * 120.0;
+        double costUlei = (capacitate_rezervor_ulei - volum_curent_ulei) * 25.0;
+        System.out.println("Cost mentenanta estimat (drujba): " + (costLant + costUlei) + " lei.");
+    }
+
+}
+
+public class Main {
+    public static void main(String[] args) {
+    }
+}
