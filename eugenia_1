@@ -1,0 +1,193 @@
+class aparat_spalare_presiune extends aparat {
+    private String denumire;
+    private double putere;
+    private float presiune;
+    private float debit;
+    private float volum_rezervor;
+    private float volum_curent;
+    private int lungime_cablu;
+    private boolean are_roti;
+    private String tip_motor;
+    private int nivel_zgomot;
+    public aparat_spalare_presiune() {}
+    public aparat_spalare_presiune(String denumire, double putere, float presiune, float debit,
+                                   float volum_rezervor, float volum_curent,
+                                   int lungime_cablu, boolean are_roti,
+                                   String tip_motor, int nivel_zgomot) {
+        this.denumire = denumire;
+        this.putere = putere;
+        this.presiune = presiune;
+        this.debit = debit;
+        this.volum_rezervor = volum_rezervor;
+        this.volum_curent = volum_curent;
+        this.lungime_cablu = lungime_cablu;
+        this.are_roti = are_roti;
+        this.tip_motor = tip_motor;
+        this.nivel_zgomot = nivel_zgomot;
+    }
+
+    public aparat_spalare_presiune(aparat_spalare_presiune a) {
+        this(a.denumire, a.putere, a.presiune, a.debit, a.volum_rezervor, a.volum_curent,
+                a.lungime_cablu, a.are_roti, a.tip_motor, a.nivel_zgomot);
+    }
+
+    @Override
+    public void schimba_starea(rezultat r) {
+        if (r == null) return;
+        curent -= r.curent_consumat;        // folosește staticul din aparat
+        this.volum_curent = r.volum_ramas;  // actualizează rezervorul
+        System.out.println("[Spălare] " + denumire +
+                " | consum: " + r.curent_consumat + "W, volum rămas: " + r.volum_ramas +
+                "L, curent total: " + curent + "W");
+    }
+
+    @Override
+    void cost_mentenanta(rezultat r) {
+        if (r == null) return;
+        double cost = r.curent_consumat * 0.01 + (volum_rezervor - r.volum_ramas) * 0.5;
+        System.out.println("Cost mentenanta: " + cost + " lei");
+    }
+
+    public rezultat spala(float suprafata_m2) {
+        if (suprafata_m2 <= 0) return null;
+        double timp_min = Math.max(1.0, suprafata_m2 / Math.max(1.0, presiune * Math.max(1.0, debit)));
+        double curent_consumat = putere * (timp_min / 60.0);
+        float apa_folosita = (float)Math.min(volum_curent, suprafata_m2 * 0.2f);
+        float volum_ramas = (float)Math.max(0, volum_curent - apa_folosita);
+        return new rezultat(suprafata_m2, curent_consumat, new float[0], volum_ramas, timp_min);
+    }
+
+    public String getDenumire() { return denumire; }
+    public void setDenumire(String denumire) { this.denumire = denumire; }
+    public double getPutere() { return putere; }
+    public void setPutere(double putere) { this.putere = putere; }
+    public float getPresiune() { return presiune; }
+    public void setPresiune(float presiune) { this.presiune = presiune; }
+    public float getDebit() { return debit; }
+    public void setDebit(float debit) { this.debit = debit; }
+    public float getVolum_rezervor() { return volum_rezervor; }
+    public void setVolum_rezervor(float volum_rezervor) { this.volum_rezervor = volum_rezervor; }
+    public float getVolum_curent() { return volum_curent; }
+    public void setVolum_curent(float volum_curent) { this.volum_curent = volum_curent; }
+    public int getLungime_cablu() { return lungime_cablu; }
+    public void setLungime_cablu(int lungime_cablu) { this.lungime_cablu = lungime_cablu; }
+    public boolean Are_roti() { return are_roti; }
+    public void setAre_roti(boolean are_roti) { this.are_roti = are_roti; }
+    public String getTip_motor() { return tip_motor; }
+    public void setTip_motor(String tip_motor) { this.tip_motor = tip_motor; }
+    public int getNivel_zgomot() { return nivel_zgomot; }
+    public void setNivel_zgomot(int nivel_zgomot) { this.nivel_zgomot = nivel_zgomot; }
+
+    @Override
+    public String toString() {
+        return "aparat_spalare_presiune{" +
+                "denumire='" + denumire +
+                ", putere=" + putere +
+                ", presiune=" + presiune +
+                ", debit=" + debit +
+                ", volum_rezervor=" + volum_rezervor +
+                ", volum_curent=" + volum_curent +
+                ", lungime_cablu=" + lungime_cablu +
+                ", are_roti=" + are_roti +
+                ", tip_motor='" + tip_motor +
+                ", nivel_zgomot=" + nivel_zgomot +
+                '}';
+    }
+}
+
+class suflanta extends aparat {
+    // ——— 10 câmpuri private ———
+    private String denumire;
+    private double putere;            // W
+    private float viteza_aer;         // km/h
+    private boolean are_aspirare;
+    private int nivel_zgomot;         // dB
+    private float greutate;           // kg
+    private int autonomie_baterie;    // minute
+    private String tip_alimentare;    // cablu / baterie
+    private String material_carcasa;  // plastic / metal
+    private boolean functie_turbo;
+
+    public suflanta() {}
+
+    public suflanta(String denumire, double putere, float viteza_aer, boolean are_aspirare, int nivel_zgomot,
+                    float greutate, int autonomie_baterie, String tip_alimentare,
+                    String material_carcasa, boolean functie_turbo) {
+        this.denumire = denumire;
+        this.putere = putere;
+        this.viteza_aer = viteza_aer;
+        this.are_aspirare = are_aspirare;
+        this.nivel_zgomot = nivel_zgomot;
+        this.greutate = greutate;
+        this.autonomie_baterie = autonomie_baterie;
+        this.tip_alimentare = tip_alimentare;
+        this.material_carcasa = material_carcasa;
+        this.functie_turbo = functie_turbo;
+    }
+
+    public suflanta(suflanta s) {
+        this(s.denumire, s.putere, s.viteza_aer, s.are_aspirare, s.nivel_zgomot,
+                s.greutate, s.autonomie_baterie, s.tip_alimentare, s.material_carcasa, s.functie_turbo);
+    }
+
+
+    @Override
+    public void schimba_starea(rezultat r) {
+        if (r == null) return;
+        curent -= r.curent_consumat;
+        System.out.println("[Suflantă] " + denumire +
+                " | consum: " + r.curent_consumat + "W, curent total: " + curent + "W");
+    }
+
+    @Override
+    void cost_mentenanta(rezultat r) {
+        if (r == null) return;
+        double cost = r.curent_consumat * 0.005 + nivel_zgomot * 0.1 +
+                (functie_turbo ? 2.0 : 0.0);
+        System.out.println("Cost mentenanță (suflantă): " + cost + " lei");
+    }
+
+    public rezultat sufla(float durata_minute) {
+        if (durata_minute <= 0) return null;
+        double curent_consumat = putere * (durata_minute / 60.0); // Wh aprox.
+        +return new rezultat(durata_minute, curent_consumat, new float[0], 0f, durata_minute);
+    }
+
+
+    public String getDenumire() { return denumire; }
+    public void setDenumire(String denumire) { this.denumire = denumire; }
+    public double getPutere() { return putere; }
+    public void setPutere(double putere) { this.putere = putere; }
+    public float getViteza_aer() { return viteza_aer; }
+    public void setViteza_aer(float viteza_aer) { this.viteza_aer = viteza_aer; }
+    public boolean isAre_aspirare() { return are_aspirare; }
+    public void setAre_aspirare(boolean are_aspirare) { this.are_aspirare = are_aspirare; }
+    public int getNivel_zgomot() { return nivel_zgomot; }
+    public void setNivel_zgomot(int nivel_zgomot) { this.nivel_zgomot = nivel_zgomot; }
+    public float getGreutate() { return greutate; }
+    public void setGreutate(float greutate) { this.greutate = greutate; }
+    public int getAutonomie_baterie() { return autonomie_baterie; }
+    public void setAutonomie_baterie(int autonomie_baterie) { this.autonomie_baterie = autonomie_baterie; }
+    public String getTip_alimentare() { return tip_alimentare; }
+    public void setTip_alimentare(String tip_alimentare) { this.tip_alimentare = tip_alimentare; }
+    public String getMaterial_carcasa() { return material_carcasa; }
+    public void setMaterial_carcasa(String material_carcasa) { this.material_carcasa = material_carcasa; }
+    public boolean isFunctie_turbo() { return functie_turbo; }
+    public void setFunctie_turbo(boolean functie_turbo) { this.functie_turbo = functie_turbo; }
+
+    @Override
+    public String toString() {
+        return "suflanta{" +
+                "denumire='" + denumire + '\'' +
+                ", putere=" + putere +
+                ", viteza_aer=" + viteza_aer +
+                ", are_aspirare=" + are_aspirare +
+                ", nivel_zgomot=" + nivel_zgomot +
+                ", greutate=" + greutate +
+                ", autonomie_baterie=" + autonomie_baterie +
+                ", tip_alimentare='" + tip_alimentare + '\'' +
+                ", material_carcasa='" + material_carcasa + '\'' +
+                ", functie_turbo=" + functie_turbo +
+                '}';
+    }
+}
