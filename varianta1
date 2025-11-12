@@ -32,9 +32,9 @@ class drujba {
     float lungime_lama_cm;
     float viteza_lant_mps;
 
-    public void schimba_starea(rezultat a) {
+    public void schimba_starea(rezultat a){
         System.out.println("In urma utilizarii drujbei " + denumire + " s-au taiat " + a.produs
-                + " unitați.\nS-a consumat " + a.curent_consumat
+                + " unitati.\nS-a consumat " + a.curent_consumat
                 + "W.\nUlei ramas: " + a.volum_ramas + " L.");
         aparat.curent -= a.curent_consumat;
         volum_curent_ulei = a.volum_ramas;
@@ -43,16 +43,43 @@ class drujba {
     }
 
     void cost_mentenanta(rezultat c){
-        if(stare_element_taiere == null || stare_element_taiere.length == 0){
+        if (stare_element_taiere == null || stare_element_taiere.length == 0) {
             System.out.println("Date insuficiente pentru calculul mentenantei.");
             return;
         }
         double uzuraMedie = 0.0;
-        for (float v : stare_element_taiere) uzuraMedie += (1.0 - v);
+        for (float v : stare_element_taiere) uzuraMedie += (1.0 - v); //v=1 nou si v=0 uzat
         uzuraMedie /= stare_element_taiere.length;
+
         double costLant = uzuraMedie * 120.0;
-        double costUlei = (capacitate_rezervor_ulei - volum_curent_ulei) * 25.0;
+        double costUlei = (capacitate_rezervor_ulei - volum_curent_ulei) * 25.0; // lei/L
         System.out.println("Cost mentenanta estimat (drujba): " + (costLant + costUlei) + " lei.");
+    }
+
+    public rezultat pornire(float cerinta){
+        double consum = alimentare * (cerinta / productivitate);
+        if (consum > aparat.curent) return null;
+
+        if (stare_element_taiere == null) return null;
+        float[] vector = new float[stare_element_taiere.length];
+        System.arraycopy(stare_element_taiere, 0, vector, 0, stare_element_taiere.length);
+
+        float uzura = (cerinta / productivitate);
+        for (int i = 0; i < vector.length; i++) {
+            if (vector[i] > uzura) vector[i] -= uzura;
+            else return null; //element prea uzat pentru cerinta data
+        }
+
+        //consum ulei: simplificat– 0.05 L per unitate de cerința
+        float consumUlei = 0.05f * cerinta;
+        float volumRamas = volum_curent_ulei - consumUlei;
+        if (volumRamas < 0) return null;
+
+        float funcRamasa = (float)Math.max(0.0, garantie_de_functionare - (cerinta / productivitate));
+
+        rezultat r = new rezultat(cerinta, consum, vector, volumRamas, funcRamasa);
+        schimba_starea(r);
+        return r;
     }
 
 }
