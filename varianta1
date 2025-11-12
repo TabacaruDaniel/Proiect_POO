@@ -75,16 +75,61 @@ class drujba {
         float volumRamas = volum_curent_ulei - consumUlei;
         if (volumRamas < 0) return null;
 
-        float funcRamasa = (float)Math.max(0.0, garantie_de_functionare - (cerinta / productivitate));
+        float funcRamasa = (float)Math.max(0, garantie_de_functionare - cerinta / productivitate);
 
         rezultat r = new rezultat(cerinta, consum, vector, volumRamas, funcRamasa);
         schimba_starea(r);
         return r;
     }
 
-}
+    //Constructor implicit
+    drujba(){
+        this.denumire = "";
+    }
 
-public class Main {
-    public static void main(String[] args) {
+    //Constructor de copiere
+    drujba(drujba a){
+        this.denumire = a.denumire;
+        this.productivitate = a.productivitate;
+        this.alimentare = a.alimentare;
+        this.numar_elemente_taiere = a.numar_elemente_taiere;
+        this.stare_element_taiere = a.stare_element_taiere;
+        this.capacitate_rezervor_ulei = a.capacitate_rezervor_ulei;
+        this.volum_curent_ulei = a.volum_curent_ulei;
+        this.garantie_de_functionare = a.garantie_de_functionare;
+        this.lungime_lama_cm = a.lungime_lama_cm;
+        this.viteza_lant_mps = a.viteza_lant_mps;
+    }
+
+    //Constructor complet
+    drujba(String denumire, float productivitate, float alimentare,
+           int numar_elemente_taiere, float[] stare_element_taiere,
+           float capacitate_rezervor_ulei, float volum_curent_ulei,
+           double garantie_de_functionare, float lungime_lama_cm, float viteza_lant_mps){
+        this.denumire = denumire;
+        this.productivitate = productivitate;
+        this.alimentare = alimentare;
+        this.numar_elemente_taiere = numar_elemente_taiere;
+        this.stare_element_taiere = stare_element_taiere;
+        this.capacitate_rezervor_ulei = capacitate_rezervor_ulei;
+        this.volum_curent_ulei = volum_curent_ulei;
+        this.garantie_de_functionare = garantie_de_functionare;
+        this.lungime_lama_cm = lungime_lama_cm;
+        this.viteza_lant_mps = viteza_lant_mps;
+    }
+
+    public String toString(){
+        StringBuilder vect = new StringBuilder();
+        if (stare_element_taiere != null) {
+            for (int i = 0; i < stare_element_taiere.length; i++) {
+                vect.append(stare_element_taiere[i]);
+                if (i < stare_element_taiere.length - 1) vect.append(",");
+            }
+        }
+        return denumire + " " + productivitate + " " + alimentare + " "
+                + numar_elemente_taiere + " [" + vect + "] "
+                + capacitate_rezervor_ulei + "L " + volum_curent_ulei + "L "
+                + garantie_de_functionare + "h "
+                + lungime_lama_cm + "cm " + viteza_lant_mps + "m/s";
     }
 }
