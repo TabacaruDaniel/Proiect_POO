@@ -36,8 +36,8 @@ class aparat_spalare_presiune extends aparat {
         if (r == null) return;
         curent -= r.curent_consumat;        // folosește staticul din aparat
         this.volum_curent = r.volum_ramas;  // actualizează rezervorul
-        System.out.println("[Spălare] " + denumire +
-                " | consum: " + r.curent_consumat + "W, volum rămas: " + r.volum_ramas +
+        System.out.println("[Spalare] " + denumire +
+                " | consum: " + r.curent_consumat + "W, volum ramas: " + r.volum_ramas +
                 "L, curent total: " + curent + "W");
     }
 
@@ -135,7 +135,7 @@ class suflanta extends aparat {
     public void schimba_starea(rezultat r) {
         if (r == null) return;
         curent -= r.curent_consumat;
-        System.out.println("[Suflantă] " + denumire +
+        System.out.println("[Suflanta] " + denumire +
                 " | consum: " + r.curent_consumat + "W, curent total: " + curent + "W");
     }
 
@@ -144,7 +144,7 @@ class suflanta extends aparat {
         if (r == null) return;
         double cost = r.curent_consumat * 0.005 + nivel_zgomot * 0.1 +
                 (functie_turbo ? 2.0 : 0.0);
-        System.out.println("Cost mentenanță (suflantă): " + cost + " lei");
+        System.out.println("Cost mentenanta (suflanta) " + cost + " lei");
     }
 
     public rezultat sufla(float durata_minute) {
@@ -191,3 +191,4 @@ class suflanta extends aparat {
                 '}';
     }
 }
+
