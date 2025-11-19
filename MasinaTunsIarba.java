@@ -1,3 +1,5 @@
+package ProiectPOO;
+
 public class MasinaTunsIarba extends Aparat {
     // datele membre
    
