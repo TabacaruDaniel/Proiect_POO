@@ -1,3 +1,5 @@
+package ProiectPOO;
+
 public class Motosapa extends Aparat {
     // datele membre: 
     
