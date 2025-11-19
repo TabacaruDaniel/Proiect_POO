@@ -1,277 +1,90 @@
-abstract class aparat{
-    static double curent=425;
-    abstract public void schimba_starea(rezultat a);
-    abstract void cost_mentenanta(rezultat c);
-}
-class rezultat{
-    protected double produs;
-    protected double curent_consumat;
-    protected float[] stare_perii;
-    protected float volum_ramas;
-    protected double functionare_ramasa;
-    public rezultat(double produs,double curent_consumat,float[] stare_perii, float volum_ramas, float functionare_ramasa){
-        this.produs=produs;
-        this.curent_consumat=curent_consumat;
-        this.stare_perii=stare_perii;
-        this.volum_ramas=volum_ramas;
-        this.functionare_ramasa=functionare_ramasa;
-    }
-}
+package Proiect;
 
-class AparatCuratatPardoseli extends aparat {
-    String CodIdentificare;
-    String producator;
-    int putereWati;
-    double greutateKg;
-    String ClasaEnergetica;
-    int anFabricatie;
-    double pretEuro;
-    int DurataGarantieLuni;
-    boolean EsteDisponibil;
-    String Culoare;
+import java.util.ArrayList;
 
-    AparatCuratatPardoseli(rezultat c) {
-        CodIdentificare = "";
-        producator = "";
-        putereWati = 0;
-        greutateKg = 0;
-        ClasaEnergetica = "";
-        anFabricatie = 0;
-        pretEuro = 0;
-        DurataGarantieLuni = 0;
-        EsteDisponibil = false;
-        Culoare = "";
-    }
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<AparatCuratatPardoseli> pardoseli = new ArrayList<>();
 
-    AparatCuratatPardoseli(String CodIdentificare, String producator, int putereWati, double greutateKg, String ClasaEnergetica, int anFabricatie, double pretEuro, int DurataGarantieLuni, boolean EsteDisponibil, String Culoare) {
-        this.CodIdentificare = CodIdentificare;
-        this.producator = producator;
-        this.putereWati = putereWati;
-        this.greutateKg = greutateKg;
-        this.ClasaEnergetica = ClasaEnergetica;
-        this.anFabricatie = anFabricatie;
-        this.pretEuro = pretEuro;
-        this.DurataGarantieLuni = DurataGarantieLuni;
-        this.EsteDisponibil = EsteDisponibil;
-        this.Culoare = Culoare;
-    }
+        AparatCuratatPardoseli p1 = new AparatCuratatPardoseli();
+        System.out.println(p1);
+        pardoseli.add(p1);
+        AparatCuratatPardoseli p2 = new AparatCuratatPardoseli("P1002", "Tennant", 4554, 550d, "D", 2020, 4006, 24, true, "Rosu");
+        System.out.println(p2);
+        pardoseli.add(p2);
 
-    AparatCuratatPardoseli(AparatCuratatPardoseli altAparat) {
-        this.CodIdentificare = altAparat.CodIdentificare;
-        this.producator = altAparat.producator;
-        this.putereWati = altAparat.putereWati;
-        this.greutateKg = altAparat.greutateKg;
-        this.ClasaEnergetica = altAparat.ClasaEnergetica;
-        this.anFabricatie = altAparat.anFabricatie;
-        this.pretEuro = altAparat.pretEuro;
-        this.DurataGarantieLuni = altAparat.DurataGarantieLuni;
-    }
+        AparatCuratatPardoseli p3 = new AparatCuratatPardoseli();
+        System.out.println(p3);
+        pardoseli.add(p3);
+        AparatCuratatPardoseli p4 = new AparatCuratatPardoseli("P1004", "Bosch", 2100, 200d, "C", 2016, 2500, 24, true, "Verde");
+        System.out.println(p4);
+        pardoseli.add(p4);
 
-    public String getCodIdentificare() {
-        return CodIdentificare;
-    }
+        AparatCuratatPardoseli p5 = new AparatCuratatPardoseli();
+        System.out.println(p5);
+        pardoseli.add(p5);
+        AparatCuratatPardoseli p6 = new AparatCuratatPardoseli("P1006", "Karcher", 3500, 320d, "B", 2019, 3300, 24, false, "Negru");
+        System.out.println(p6);
+        pardoseli.add(p6);
 
-   public void setCodIdentificare(String CodIdentificare) {
-        this.CodIdentificare = CodIdentificare;
-    }
+        AparatCuratatPardoseli p7 = new AparatCuratatPardoseli();
+        System.out.println(p7);
+        pardoseli.add(p7);
+        AparatCuratatPardoseli p8 = new AparatCuratatPardoseli("P1008", "Tennant", 5001, 620d, "A", 2022, 4600, 24, true, "Galben");
+        System.out.println(p8);
+        pardoseli.add(p8);
 
-    public String getProducator() {
-        return producator;
-    }
+        AparatCuratatPardoseli p9 = new AparatCuratatPardoseli();
+        System.out.println(p9);
+        pardoseli.add(p9);
+        AparatCuratatPardoseli p10 = new AparatCuratatPardoseli("P1010", "Bosch", 2500, 270d, "C", 2016, 2800, 24, true, "Rosu");
+        System.out.println(p10);
+        pardoseli.add(p10);
 
-    public void setProducator(String producator) {
-        this.producator = producator;
-    }
+        ArrayList<AparatCuratatGeamuri> geamuri = new ArrayList<>();
+        AparatCuratatGeamuri g1 = new AparatCuratatGeamuri();
+        System.out.println(g1);
+        geamuri.add(g1);
+        AparatCuratatGeamuri g2 = new AparatCuratatGeamuri("Solutie1", true, 14, 27.0, "bumbac", 6, 55, 2, "Albastru", 230.0);
+        System.out.println(g2);
+        geamuri.add(g2);
 
-    public int getPutereWati() {
-        return putereWati;
-    }
+        AparatCuratatGeamuri g3 = new AparatCuratatGeamuri();
+        System.out.println(g3);
+        geamuri.add(g3);
+        AparatCuratatGeamuri g4 = new AparatCuratatGeamuri("Solutie2", true, 15, 26.5, "bumbac", 5, 65, 3, "Verde", 225.0);
+        System.out.println(g4);
+        geamuri.add(g4);
 
-    public void setPutereWati(int putereWati) {
-        this.putereWati = putereWati;
-    }
+        AparatCuratatGeamuri g5 = new AparatCuratatGeamuri();
+        System.out.println(g5);
+        geamuri.add(g5);
+        AparatCuratatGeamuri g6 = new AparatCuratatGeamuri("Solutie3", true, 13, 26.0, "bumbac", 5, 55, 3, "Portocaliu", 215.0);
+        System.out.println(g6);
+        geamuri.add(g6);
 
-    public double getGreutateKg() {
-        return greutateKg;
-    }
+        AparatCuratatGeamuri g7 = new AparatCuratatGeamuri();
+        System.out.println(g7);
+        geamuri.add(g7);
+        AparatCuratatGeamuri g8 = new AparatCuratatGeamuri("Solutie4", false, 12, 24.5, "bumbac", 6, 50, 3, "Albastru", 210.0);
+        System.out.println(g8);
+        geamuri.add(g8);
 
-    public void setPutereKg(double greutateKg) {
-        this.greutateKg = greutateKg;
-    }
+        AparatCuratatGeamuri g9 = new AparatCuratatGeamuri();
+        System.out.println(g9);
+        geamuri.add(g9);
+        AparatCuratatGeamuri g10 = new AparatCuratatGeamuri("Solutie5", true, 12, 25.0, "bumbac", 6, 60, 3, "Negru", 220.0);
+        System.out.println(g10);
+        geamuri.add(g10);
 
-    public String getClasaEnergetica() {
-        return ClasaEnergetica;
-    }
+        System.out.println("Afisez obiectele de pardoseli: ");
+        for (int i = 0; i < pardoseli.size(); i++) {
+            System.out.println(pardoseli.get(i));
+        }
 
-    public void setClasaEnergetica(String ClasaEnergetica) {
-        this.ClasaEnergetica = ClasaEnergetica;
-    }
-
-    public int getAnFabricatie() {
-        return anFabricatie;
-    }
-
-    public void setAnFabricatie(int anFabricatie) {
-        this.anFabricatie = anFabricatie;
-    }
-
-    public double getPretEuro() {
-        return pretEuro;
-    }
-
-    public void setPretEuro(double pretEuro) {
-        this.pretEuro = pretEuro;
-    }
-
-    public int getDurataGarantieLuni() {
-        return DurataGarantieLuni;
-    }
-
-    public void DurataGarantieLuni(int DurataGarantieLuni) {
-        this.DurataGarantieLuni = DurataGarantieLuni;
-    }
-
-    public boolean getEsteDisponibil() {
-        return EsteDisponibil;
-    }
-
-    public void setEsteDisponibil(boolean EsteDisponibil) {
-        this.EsteDisponibil = EsteDisponibil;
-    }
-
-    public String getCuloare() {
-        return Culoare;
-    }
-
-    public void setCuloare(String Culoare) {
-        this.Culoare = Culoare;
-    }
-
-    @Override
-    public String toString() {
-        String s = "";
-        return s + CodIdentificare + " " + producator + " " + putereWati + " " + greutateKg + " " + ClasaEnergetica + " " + anFabricatie + " " + pretEuro + " " + DurataGarantieLuni + " " + EsteDisponibil + " " + Culoare + " ";
-    }
-}
-class AparatCuratatGeamuri extends aparat{
-    private String tipSolutieCuratare;
-    private boolean functieAspirare;
-    int autonomieBaterie;
-    double latimeLaveta;
-    String materialLaveta;
-    int temperaturaMinimaFunctionare;
-    int timpIncarcare;
-    int nrAccesorii;
-    String CuloareLedStatus;
-    double tensiuneVibratie;
-
-    public AparatCuratatGeamuri(){
-        tipSolutieCuratare = "";
-        functieAspirare = false;
-        autonomieBaterie = 0;
-        latimeLaveta = 0;
-        materialLaveta = "";
-        temperaturaMinimaFunctionare = 0;
-        timpIncarcare = 0;
-        nrAccesorii = 0;
-        CuloareLedStatus = "";
-        tensiuneVibratie = 0;
-    }
-    public AparatCuratatGeamuri(String tipSolutieCuratare,boolean functieAspirare,int autonomieBaterie,double latimeLaveta
-    ,String materialLaveta,int temperaturaMinimaFunctionare,int timpIncarcare,int nrAccesorii,String CuloareLedStatus,double tensiuneVibratie){
-        this.tipSolutieCuratare = tipSolutieCuratare;
-        this.functieAspirare = functieAspirare;
-        this.autonomieBaterie = autonomieBaterie;
-        this.latimeLaveta = latimeLaveta;
-        this.materialLaveta = materialLaveta;
-        this.temperaturaMinimaFunctionare = temperaturaMinimaFunctionare;
-        this.timpIncarcare = timpIncarcare;
-        this.nrAccesorii = nrAccesorii;
-        this.CuloareLedStatus = CuloareLedStatus;
-        this.tensiuneVibratie = tensiuneVibratie;
-    }
-    public AparatCuratatGeamuri(AparatCuratatGeamuri altAparat){
-        this.tipSolutieCuratare = altAparat.tipSolutieCuratare;
-        this.functieAspirare = altAparat.functieAspirare;
-        this.autonomieBaterie = altAparat.autonomieBaterie;
-        this.latimeLaveta = altAparat.latimeLaveta;
-        this.materialLaveta = altAparat.materialLaveta;
-        this.temperaturaMinimaFunctionare = altAparat.temperaturaMinimaFunctionare;
-        this.timpIncarcare = altAparat.timpIncarcare;
-        this.nrAccesorii = altAparat.nrAccesorii;
-        this.CuloareLedStatus = altAparat.CuloareLedStatus;
-        this.tensiuneVibratie = altAparat.tensiuneVibratie;
-    }
-    public String getTipSolutieCuratare() {
-        return tipSolutieCuratare;
-    }
-    public void setTipSolutieCuratare(String tipSolutieCuratare) {
-        this.tipSolutieCuratare = tipSolutieCuratare;
-    }
-    public boolean getFunctieAspirare() {
-        return functieAspirare;
-    }
-    public void setFunctieAspirare(boolean functieAspirare) {
-        this.functieAspirare = functieAspirare;
-    }
-    public int getAutonomieBaterie() {
-        return autonomieBaterie;
-    }
-    public void setAutonomieBaterie(int autonomieBaterie) {
-        this.autonomieBaterie = autonomieBaterie;
-    }
-    public double getLatimeLaveta() {
-        return latimeLaveta;
-    }
-    public void setLatimeLaveta(double latimeLaveta) {
-        this.latimeLaveta = latimeLaveta;
-    }
-    public String getMaterialLaveta() {
-        return materialLaveta;
-    }
-    public void setMaterialLaveta(String materialLaveta) {
-        this.materialLaveta = materialLaveta;
-    }
-    public int getTemperaturaMinimaFunctionare() {
-        return temperaturaMinimaFunctionare;
-    }
-    public void setTemperaturaMinimaFunctionare(int temperaturaMinimaFunctionare) {
-        this.temperaturaMinimaFunctionare = temperaturaMinimaFunctionare;
-    }
-
-    public double getTensiuneVibratie() {
-        return tensiuneVibratie;
-    }
-    public void setTensiuneVibratie(double TensiuneVibratie) {
-        this.tensiuneVibratie = TensiuneVibratie;
-    }
-    public int getNrAccesorii() {
-        return nrAccesorii;
-    }
-    public void setNrAccesorii(int nrAccesorii) {
-        this.nrAccesorii = nrAccesorii;
-    }
-    public String getCuloareLedStatus() {
-        return CuloareLedStatus;
-    }
-    public void setCuloareLedStatus(String CuloareLedStatus) {
-        this.CuloareLedStatus = CuloareLedStatus;
-    }
-    public int gettimpIncarcare() {
-        return timpIncarcare;
-    }
-    public void settimpIncarcare(int timpIncarcare) {
-        this.timpIncarcare = timpIncarcare;
-    }
-    @Override
-    public String toString() {
-        String aspirareStatus=functieAspirare?"DA":"NU";
-        return super.toString()+"Tip:Geamuri,Solutie: "+tipSolutieCuratare+"Aspirare: "+aspirareStatus;
-    }
-}
-    public class Main {
-        public static void main(String[] args) {
-
-
+        System.out.println("\nAfisez obiectele de geamuri: ");
+        for (int i = 0; i < geamuri.size(); i++) {
+            System.out.println(geamuri.get(i));
         }
     }
+}
