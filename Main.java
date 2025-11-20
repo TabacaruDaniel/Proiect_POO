@@ -47,10 +47,11 @@ public class Main {
         System.out.println("Masini tuns iarba afisare:\n");
 
       for (int i = 0; i < masini.length; i++) {
-    System.out.println(masini[i]);
+    System.out.println(masini[0]);
+     System.out.println(masini[9]);
 }
        
-*/
+
 
      //pt motosapa
 
@@ -62,7 +63,9 @@ public class Main {
         System.out.println("\nMotosape:");
 
       for(int i=0;i.length.motosapa;i++){
-        System.out.println(motosapa[i]) }  
+        System.out.println(motosapa[0]);
+          System.out.println(motosapa[9]);
+      }  
       
             }
 
