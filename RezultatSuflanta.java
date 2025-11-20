@@ -1,23 +1,28 @@
 package ProiectPOO;
 
-public class RezultatSuflanta extends Rezultat {
+public class RezultatSpalare extends Rezultat {
 
-    protected float viteza_medie;
+    protected float volum_folosit;
+    protected float volum_ramas;
     protected double timp;
 
-    public RezultatSuflanta(double durata, double curent_consumat,
-                            float viteza_medie, double timp) {
-        super(durata, curent_consumat);
-        this.viteza_medie = viteza_medie;
+    public RezultatSpalare(double suprafata, double curent_consumat,
+                           float volum_folosit, float volum_ramas, double timp) {
+
+        super(suprafata, curent_consumat);
+
+        this.volum_folosit = volum_folosit;
+        this.volum_ramas = volum_ramas;
         this.timp = timp;
     }
 
     @Override
     public String toString() {
-        return "RezultatSuflanta{" +
-                "durata=" + produs +
+        return "RezultatSpalare{" +
+                "suprafata=" + produs +
                 ", curent_consumat=" + curent_consumat +
-                ", viteza_medie=" + viteza_medie +
+                ", volum_folosit=" + volum_folosit +
+                ", volum_ramas=" + volum_ramas +
                 ", timp=" + timp +
                 '}';
     }
