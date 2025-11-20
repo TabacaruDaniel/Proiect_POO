@@ -4,17 +4,16 @@ public class Main {
 
 
     public static void main(String[] args) {
+        
   // instante ale clasei
  MasinaTunsIarba m1 = new MasinaTunsIarba();
         m1.setMarca("Honda");
         m1.setModel("CM764");
 
-        MasinaTunsIarba m2 =
-                new MasinaTunsIarba("Stihl", "S450", 4.5, 40,
-                        1.5, true, 85, 20, 2, "benzina");
+        MasinaTunsIarba m2 = new MasinaTunsIarba("Stihl", "S450", 4.5, 40, 1.5, true, 85, 20, 2, "benzina");
 
         MasinaTunsIarba m3 = new MasinaTunsIarba(m2);// c de copiere apelat
-
+        
         System.out.println(m1);
         System.out.println(m2);
         System.out.println(m3);
@@ -22,9 +21,8 @@ public class Main {
 
   // pt motosapa
 
-        Motosapa s1 = new Motosapa();
-        Motosapa s2 = new Motosapa("Ruris", "630K", 7.0,
-                45, 20, 30, 2, 1, true, 3);
+        Motosapa s1 = new Motosapa(); // cu co f arg
+        Motosapa s2 = new Motosapa("Ruris", "630K", 7.0, 45, 20, 30, 2, 1, true, 3);
         Motosapa s3 = new Motosapa(s2); // c de copiere apelat
         
 
@@ -42,13 +40,9 @@ public class Main {
       
      // parcurgere
         for (int i = 0; i < 10; i++) {
-            masini[i] = new MasinaTunsIarba(
-                    "marca" + i, "model" + i,
-                    4 + i, 40 + i,
-                    1.5, i % 2 == 0,
-                    80 + i, 20 + i, 2, "benzina"
-            );
+            masini[i] = new MasinaTunsIarba( "marca" + i, "model" + i, 4 + i, 40 + i, 1.5, i % 2 == 0, 80 + i, 20 + i, 2, "benzina" );
         }
+        
      // afisare
         System.out.println("Masini tuns iarba afisare:\n");
 
@@ -66,23 +60,14 @@ public class Main {
         Object[] motosapa = new Object[10];
 
         for (int i = 0; i < 10; i++) {
-            motosapa[i] = new Motosapa(
-                    "Ruris", "R" + i,
-                    6 + i, 45 + i,
-                    20 + i, 30 + i,
-                    2, 1, i % 2 == 0, 3
-            );
+            motosapa[i] = new Motosapa( "Ruris", "R" + i,  6 + i, 45 + i, 20 + i, 30 + i, 2, 1, i % 2 == 0, 3);
         }
-
         System.out.println("\nMotosape:");
-      /*
+
       for(int i=0;i.length.motosapa;i++){
         System.out.println(motosapa[i]) }  
-      */
-        for (Object obj : motosapa) {
-            System.out.println(obj);
-        }
-    }
+      
+            }
 
 
 
@@ -92,18 +77,13 @@ public class Main {
         ArrayList<Object> listaMasiniTaiatIarba = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
-            listaMasiniTaiatIarba.add(new MasinaTunsIarba(
-                    "Marca" + i, "Model" + i,
-                    5 + i, 40 + i,
-                    1.5, i % 2 == 0,
-                    80 + i, 22 + i, 2, "electric"
-            ));
+            listaMasiniTaiatIarba.add(new MasinaTunsIarba(  "Marca" + i, "Model" + i,   5 + i, 40 + i,  1.5, i % 2 == 0, 80 + i, 22 + i, 2, "electric"));
         }
 
         System.out.println("\n Afisare masini  taiat iarba: ");
-        for (Object obj : listaMasiniTaiatIarba) {      
-            System.out.println(obj);
-        }
+    for (int i = 0; i < listaMasiniTaiatIarba.size(); i++) {
+    System.out.println(listaMasiniTaiatIarba.get(i));
+}
 
 
   // pt motosape
@@ -111,18 +91,13 @@ public class Main {
         ArrayList<Object> listaMotosape = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
-            listaMotosape.add(new Motosapa(
-                    "Stern", "S" + i,
-                    6 + i, 45 + i,
-                    20 + i, 30 + i,
-                    2, 1, i % 2 == 0, 3
-            ));
+            listaMotosape.add(new Motosapa(  "Stern", "S" + i,  6 + i, 45 + i,  20 + i, 30 + i, 2, 1, i % 2 == 0, 3));
         }
 
         System.out.println("\nAfisare motosape: ");
-        for (Object obj : listaMotosape) {
-            System.out.println(obj);
-        }
+      for (int i = 0; i < listaMotosape.size(); i++) {
+    System.out.println(listaMotosape.get(i));
+}
     }
 }
 // cu ArrayList, dar creez eu vectorii
@@ -173,44 +148,44 @@ for(int i=0;i<masini.size(); i++){
   System.out.println(masini.get(i));   // cu size si get ca e lista nu vector si are elemente nefixe
 
 }
-*/
+
 Arraylist<Motosapa> motosapa= new ArrayList<>();
     
-Motosapa motosapa1= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa1= new Motosapa("Grunman","PT227", 1500, 45, 20,11.5, 3,3, true, 24);
  System.out.println(motosapa1);
 motosapa.add(motosapa1);
 
-Motosapa motosapa2= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa2= new Motosapa("Grunman","PT5337", 1900, 45, 20,11.5, 3,3, true, 24);
 System.out.println(motosapa2);
 motosapa.add(motosapa2);
 
-Motosapa motosapa3= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa3= new Motosapa("Grunman","PT5466", 1600, 45, 20,11.5, 3,3, true, 24);
 System.out.println(motosapa3);
 motosapa.add(motosapa3);
 
-Motosapa motosapa4= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa4= new Motosapa("Grunman","PT6767", 1500, 45, 20,11.5, 3,3, true, 24);
 System.out.println(motosapa4);
 motosapa.add(motosapa4);
 
-Motosapa motosapa5= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa5= new Motosapa("Grunman","PT567", 1600, 45, 20,11.5, 3,3, false, 24);
     System.out.println(motosapa5);
 motosapa.add(motosapa5);
-Motosapa motosapa6= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa6= new Motosapa("Grunman","PT567", 1800, 45, 20,11.5, 3,3, false, 24);
     System.out.println(motosapa6);
 motosapa.add(motosapa6);
-Motosapa motosapa7= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa7= new Motosapa("Grunman","PT447", 1700, 45, 20,11.5, 3,3, true, 24);
     System.out.println(motosapa7);
 motosapa.add(motosapa7);
 
-Motosapa motosapa8= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa8= new Motosapa("Grunman","PT5887", 1400, 45, 20,11.5, 3,3, false, 24);
  System.out.println(motosapa8);
 motosapa.add(motosapa8);
 
-Motosapa motosapa9= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa9= new Motosapa("Grunman","PT590", 1500, 45, 20,11.5, 3,3, true, 24);
 System.out.println(motosapa9);
 motosapa.add(motosapa9);
 
-Motosapa motosapa10= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa10= new Motosapa("Grunman","PT4447", 1900, 45, 20,11.5, 3,3, true, 24);
     System.out.println(motosapa10);
 motosapa.add(motosapa10);
 
