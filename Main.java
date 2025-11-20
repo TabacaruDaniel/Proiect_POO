@@ -49,10 +49,7 @@ public class Main {
       for (int i = 0; i < masini.length; i++) {
     System.out.println(masini[i]);
 }
-        // cu for each: ( 
-      /*  for (Object obj : masini) {
-            System.out.println(obj); // se apelează toString() automat!!!!
-        }
+       
 */
 
      //pt motosapa
