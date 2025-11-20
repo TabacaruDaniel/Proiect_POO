@@ -1,3 +1,5 @@
+package ProiectPOO;
+
 public class Main {
 
 
@@ -5,13 +7,13 @@ public class Main {
   // instante ale clasei
  MasinaTunsIarba m1 = new MasinaTunsIarba();
         m1.setMarca("Honda");
-        m1.setModel("Basic");
+        m1.setModel("CM764");
 
         MasinaTunsIarba m2 =
                 new MasinaTunsIarba("Stihl", "S450", 4.5, 40,
                         1.5, true, 85, 20, 2, "benzina");
 
-        MasinaTunsIarba m3 = new MasinaTunsIarba(m2);
+        MasinaTunsIarba m3 = new MasinaTunsIarba(m2);// c de copiere apelat
 
         System.out.println(m1);
         System.out.println(m2);
@@ -23,10 +25,11 @@ public class Main {
         Motosapa s1 = new Motosapa();
         Motosapa s2 = new Motosapa("Ruris", "630K", 7.0,
                 45, 20, 30, 2, 1, true, 3);
-        Motosapa s3 = new Motosapa(s2);
+        Motosapa s3 = new Motosapa(s2); // c de copiere apelat
+        
 
         System.out.println(s1);
-        System.out.println(s2);
+        System.out.println(s2);    //se apeleaza automat met toString din cls motosapa
         System.out.println(s3);
 
 
@@ -34,6 +37,7 @@ public class Main {
      // CERINTA VECTORI CU ARRAYLIST SAU OBJECT
       
 // pentru masina de tuns iarba- cu Object
+        
         Object[] masini = new Object[10];
       
      // parcurgere
@@ -51,6 +55,7 @@ public class Main {
       for (int i = 0; i < masini.length; i++) {
     System.out.println(masini[i]);
 }
+        // cu for each: ( 
       /*  for (Object obj : masini) {
             System.out.println(obj); // se apelează toString() automat!!!!
         }
