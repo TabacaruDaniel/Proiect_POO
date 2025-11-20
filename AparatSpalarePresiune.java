@@ -34,9 +34,91 @@ public class AparatSpalarePresiune extends Aparat {
 
     public AparatSpalarePresiune(AparatSpalarePresiune other) {
         this(other.denumire, other.putere, other.presiune, other.debit,
-             other.volum_rezervor, other.volum_curent, other.lungime_cablu,
-             other.are_roti, other.tip_motor, other.nivel_zgomot);
+                other.volum_rezervor, other.volum_curent, other.lungime_cablu,
+                other.are_roti, other.tip_motor, other.nivel_zgomot);
     }
+
+
+    public String getDenumire() {
+        return denumire;
+    }
+
+    public void setDenumire(String denumire) {
+        this.denumire = denumire;
+    }
+
+    public double getPutere() {
+        return putere;
+    }
+
+    public void setPutere(double putere) {
+        this.putere = putere;
+    }
+
+    public float getPresiune() {
+        return presiune;
+    }
+
+    public void setPresiune(float presiune) {
+        this.presiune = presiune;
+    }
+
+    public float getDebit() {
+        return debit;
+    }
+
+    public void setDebit(float debit) {
+        this.debit = debit;
+    }
+
+    public float getVolum_rezervor() {
+        return volum_rezervor;
+    }
+
+    public void setVolum_rezervor(float volum_rezervor) {
+        this.volum_rezervor = volum_rezervor;
+    }
+
+    public float getVolum_curent() {
+        return volum_curent;
+    }
+
+    public void setVolum_curent(float volum_curent) {
+        this.volum_curent = volum_curent;
+    }
+
+    public int getLungime_cablu() {
+        return lungime_cablu;
+    }
+
+    public void setLungime_cablu(int lungime_cablu) {
+        this.lungime_cablu = lungime_cablu;
+    }
+
+    public boolean isAre_roti() {
+        return are_roti;
+    }
+
+    public void setAre_roti(boolean are_roti) {
+        this.are_roti = are_roti;
+    }
+
+    public String getTip_motor() {
+        return tip_motor;
+    }
+
+    public void setTip_motor(String tip_motor) {
+        this.tip_motor = tip_motor;
+    }
+
+    public int getNivel_zgomot() {
+        return nivel_zgomot;
+    }
+
+    public void setNivel_zgomot(int nivel_zgomot) {
+        this.nivel_zgomot = nivel_zgomot;
+    }
+
 
     public RezultatSpalare spala(float suprafata) {
         double timp = suprafata / 10;
