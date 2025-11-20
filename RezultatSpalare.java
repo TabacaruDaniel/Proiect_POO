@@ -8,7 +8,9 @@ public class RezultatSpalare extends Rezultat {
 
     public RezultatSpalare(double suprafata, double curent_consumat,
                            float volum_folosit, float volum_ramas, double timp) {
+
         super(suprafata, curent_consumat);
+
         this.volum_folosit = volum_folosit;
         this.volum_ramas = volum_ramas;
         this.timp = timp;
