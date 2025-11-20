@@ -173,6 +173,48 @@ for(int i=0;i<masini.size(); i++){
   System.out.println(masini.get(i));   // cu size si get ca e lista nu vector si are elemente nefixe
 
 }
-
 */
+Arraylist<Motosapa> motosapa= new ArrayList<>();
+    
+Motosapa motosapa1= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+ System.out.println(motosapa1);
+motosapa.add(motosapa1);
+
+Motosapa motosapa2= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+System.out.println(motosapa2);
+motosapa.add(motosapa2);
+
+Motosapa motosapa3= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+System.out.println(motosapa3);
+motosapa.add(motosapa3);
+
+Motosapa motosapa4= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+System.out.println(motosapa4);
+motosapa.add(motosapa4);
+
+Motosapa motosapa5= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+    System.out.println(motosapa5);
+motosapa.add(motosapa5);
+Motosapa motosapa6= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+    System.out.println(motosapa6);
+motosapa.add(motosapa6);
+Motosapa motosapa7= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+    System.out.println(motosapa7);
+motosapa.add(motosapa7);
+
+Motosapa motosapa8= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+ System.out.println(motosapa8);
+motosapa.add(motosapa8);
+
+Motosapa motosapa9= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+System.out.println(motosapa9);
+motosapa.add(motosapa9);
+
+Motosapa motosapa10= new Motosapa("Grunman","PT567", 1500, 45, 20,11.5, 3,3, true, 24);
+    System.out.println(motosapa10);
+motosapa.add(motosapa10);
+
+for(int i=0;i<motosapa.size();i++){
+    System.out.println(motosapa.get(i));
+
 }
