@@ -89,16 +89,16 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
 // Pardoseli
-        System.out.print("Introduceți prețul minim pentru pardoseli: ");
+        System.out.print("Introduceti pretul minim pentru pardoseli: ");
         double pretMinim = sc.nextDouble();
-        System.out.print("Să fie disponibil? (true/false): ");
+        System.out.print("Sa fie disponibil? (true/false): ");
         boolean disponibil = sc.nextBoolean();
         AparatCuratatPardoseli.afiseazaDupaConditii(pardoseli, pretMinim, disponibil);
 
 // Geamuri
-        System.out.print("Introduceți autonomia minimă pentru geamuri: ");
+        System.out.print("Introduceti autonomia minimă pentru geamuri: ");
         int autonomieMinima = sc.nextInt();
-        System.out.print("Trebuie să aibă funcție aspirare? (true/false): ");
+        System.out.print("Trebuie sa aiba functie aspirare? (true/false): ");
         boolean aspirare = sc.nextBoolean();
         AparatCuratatGeamuri.afiseazaDupaConditii(geamuri, autonomieMinima, aspirare);
     }

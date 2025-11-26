@@ -142,12 +142,12 @@ class AparatCuratatGeamuri extends Aparat{
         // calculam un cost simplificat pe baza autonomiei bateriei
         r.produs = autonomieBaterie * 2;
 
-        // afisam costul pentru întretinerea aparatului
-        System.out.println("Cheltuielile pentru întreținerea aparatului cu soluția "
+        // afisam costul pentru intretinerea aparatului
+        System.out.println("Cheltuielile pentru intretinerea aparatului cu solutia "
                 + tipSolutieCuratare + " se ridică la " + r.produs + " euro.");
     }
     public static void afiseazaDupaConditii(ArrayList<AparatCuratatGeamuri> lista, int autonomieMinima, boolean aspirare) {
-        System.out.println("Geamuri care respectă condițiile:");
+        System.out.println("Aparate de curatat geamuri care respectă conditiile:");
         for (int i = 0; i < lista.size(); i++) {
             AparatCuratatGeamuri g = lista.get(i); // obtin obiectul curent
             if (g.getAutonomieBaterie() >= autonomieMinima && g.getFunctieAspirare() == aspirare) {

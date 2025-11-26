@@ -146,10 +146,10 @@ class AparatCuratatPardoseli extends Aparat {
         // costul de mentenanta = 5% din pretul aparatului
         double cost = pretEuro * 0.05;
         r.produs = cost; // salvam rezultatul în obiectul Rezultat
-        System.out.println("Mentenanța aparatului " + CodIdentificare + " costă aproximativ: " + cost + " euro");
+        System.out.println("Mentenanta aparatului " + CodIdentificare + " costa aproximativ: " + cost + " euro");
     }
     public static void afiseazaDupaConditii(ArrayList<AparatCuratatPardoseli> lista, double pretMinim, boolean disponibil) {
-        System.out.println("Pardoseli care respectă condițiile:");
+        System.out.println("Aparate pardoseli care respecta condițiile:");
         for (int i = 0; i < lista.size(); i++) {
             AparatCuratatPardoseli p= lista.get(i); // ia obiectul din lista de la poz i si il da variabilei p
             if (p.getPretEuro() >= pretMinim && p.getEsteDisponibil() == disponibil) {
