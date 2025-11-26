@@ -1,5 +1,5 @@
 package ProiectPOO;
-
+import java.util.ArrayList;
 public class Main {
 
 
@@ -18,7 +18,9 @@ public class Main {
         System.out.println(m2);
         System.out.println(m3);
 
+  System.out.println("           \n------------ vectori---------- \n          ");
 
+/*
   // pt motosapa
 
         Motosapa s1 = new Motosapa(); // cu co f arg
@@ -71,7 +73,6 @@ public class Main {
 
 
 
-  /*
   import java.util.ArrayList;
 
         ArrayList<Object> listaMasiniTaiatIarba = new ArrayList<>();
@@ -100,6 +101,7 @@ public class Main {
 }
     }
 }
+*/
 // cu ArrayList, dar creez eu vectorii
 
 ArrayList<MasinaTunsIarba> masini= new ArrayList<>(); // pt ca elementele sa fie doar de tipul precizat intre <>
@@ -108,7 +110,7 @@ ArrayList<MasinaTunsIarba> masini= new ArrayList<>(); // pt ca elementele sa fie
 System.out.println( masina1); // apel toString si afiseaza lista
 masini.add(masina1); // adauga la lista 
 
-MasinaTunsIarba masina2= new MasinaTunsIarba("bosh", "C3812", 1700, 40, 46, false, 40,12,24, "electric");
+MasinaTunsIarba masina2= new MasinaTunsIarba("makita", "C3812", 1700, 40, 46, false, 40,12,24, "electric");
 System.out.println( masina2); 
 masini.add(masina2);
 
@@ -148,48 +150,152 @@ for(int i=0;i<masini.size(); i++){
   System.out.println(masini.get(i));   // cu size si get ca e lista nu vector si are elemente nefixe
 
 }
+ System.out.println(" \n----------------------vectori motosapa-------------------");
 
-Arraylist<Motosapa> motosapa= new ArrayList<>();
+
+ArrayList<Motosapa> motosapa= new ArrayList<>();
     
 Motosapa motosapa1= new Motosapa("Grunman","PT227", 1500, 45, 20,11.5, 3,3, true, 24);
  System.out.println(motosapa1);
 motosapa.add(motosapa1);
 
-Motosapa motosapa2= new Motosapa("Grunman","PT5337", 1900, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa2= new Motosapa("wert","PT5337", 1900, 35, 30,12, 3,3, true, 24);
 System.out.println(motosapa2);
 motosapa.add(motosapa2);
 
-Motosapa motosapa3= new Motosapa("Grunman","PT5466", 1600, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa3= new Motosapa("niset","PT5466", 1600, 47, 15,13, 3,3, true, 24);
 System.out.println(motosapa3);
 motosapa.add(motosapa3);
 
-Motosapa motosapa4= new Motosapa("Grunman","PT6767", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa4= new Motosapa("Grunman","PT6767", 1500, 40, 20,12.5, 3,3, true, 24);
 System.out.println(motosapa4);
 motosapa.add(motosapa4);
 
-Motosapa motosapa5= new Motosapa("Grunman","PT567", 1600, 45, 20,11.5, 3,3, false, 24);
+Motosapa motosapa5= new Motosapa("makita","PT567", 1600, 44, 15,15, 3,3, false, 24);
     System.out.println(motosapa5);
 motosapa.add(motosapa5);
-Motosapa motosapa6= new Motosapa("Grunman","PT567", 1800, 45, 20,11.5, 3,3, false, 24);
+Motosapa motosapa6= new Motosapa("Grunman","PT567", 1800, 48, 30,13.5, 3,3, false, 24);
     System.out.println(motosapa6);
 motosapa.add(motosapa6);
-Motosapa motosapa7= new Motosapa("Grunman","PT447", 1700, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa7= new Motosapa("bosh","PT447", 1700, 42, 20,14, 3,3, true, 24);
     System.out.println(motosapa7);
 motosapa.add(motosapa7);
 
-Motosapa motosapa8= new Motosapa("Grunman","PT5887", 1400, 45, 20,11.5, 3,3, false, 24);
+Motosapa motosapa8= new Motosapa("Grunman","PT5887", 1400, 49, 20,10.5, 3,3, false, 24);
  System.out.println(motosapa8);
 motosapa.add(motosapa8);
 
-Motosapa motosapa9= new Motosapa("Grunman","PT590", 1500, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa9= new Motosapa("Grunman","PT590", 1500, 41, 20,15, 3,3, true, 24);
 System.out.println(motosapa9);
 motosapa.add(motosapa9);
 
-Motosapa motosapa10= new Motosapa("Grunman","PT4447", 1900, 45, 20,11.5, 3,3, true, 24);
+Motosapa motosapa10= new Motosapa("Grunman","PT4447", 1900, 50, 20,15.5, 3,3, true, 24);
     System.out.println(motosapa10);
 motosapa.add(motosapa10);
 
 for(int i=0;i<motosapa.size();i++){
     System.out.println(motosapa.get(i));
-*/
+
+
 }
+
+
+//                        TESTARE METODE CU CONDITII
+
+
+    System.out.println("\nMasini care indeplinesc conditiile(marca si putere specificate): "); 
+    conditiiMasinaTunsIarba(masini,1500,"bosh");
+    masiniBoshOrdCrescator(masini,"bosh");
+    
+    
+    System.out.println("\nMotosape cu ogreutate maxima ceruta + cu pornire automata:  ");
+    conditiiMotosapa(motosapa,12,true);
+    System.out.println("\nMotosape recomandate pentru suprafete mari(putere >1600W + latime>45):  ");
+    MotosapaRecomandate(motosapa,1600,45);
+    
+    }
+
+// Metoda pentru vectorul manual- pt masina tuns iarba
+ // statice pt ca  main e static si apeleaza doar met statice
+        // conditiile sunt- sa aiba o putere mai mare sau egala cu cea ceruta + marca specificata
+   public static void conditiiMasinaTunsIarba(ArrayList<MasinaTunsIarba> masini, double putereMinima, String marcaCautata){
+    for(int i=0;i<masini.size();i++){
+        MasinaTunsIarba m1= masini.get(i); // ca (v[i]) sau (masinatunsiarba)v[i]  -- extrag ob!!
+        if(m1.getPutere()>=putereMinima && m1.getMarca().equals(marcaCautata)){  //equalsIgnoreCase
+            System.out.println(m1); }
+    }
+ }
+// afisare crescatoare dupa putere a masinilor din marca bosh
+   public static void masiniBoshOrdCrescator(ArrayList<MasinaTunsIarba> masini,String marcaCeruta){
+        ArrayList<MasinaTunsIarba> filtrate = new ArrayList<>();
+    for (int i = 0; i < masini.size(); i++) {
+        MasinaTunsIarba m = masini.get(i);
+        if (m.getMarca().equals(marcaCeruta)) {   //
+            filtrate.add(m);
+        }
+    }
+    
+// quick sort pt sortarea crescatoare
+   for(int i=0;i<filtrate.size()-1;i++){       // filtrate.sort((a, b) -> Double.compare(b.getPutere(), a.getPutere()));\
+      for(int j=i+1;j<filtrate.size();j++){
+          if(filtrate.get(i).getPutere()>filtrate.get(j).getPutere()){
+              MasinaTunsIarba aux= filtrate.get(i);
+              filtrate.set(i, filtrate.get(j));
+              filtrate.set(j, aux); 
+          }
+      } 
+   }
+                                                                                                                                                                                
+    System.out.println("\nMasini marca Bosh ordonate descrescator dupa putere:");
+    for (int i = 0; i < filtrate.size(); i++) {
+        System.out.println(filtrate.get(i));
+    }
+   }
+   
+   
+     //metoda pentru vector fct manual pt motosapa
+   
+   //sa se afiseze motosapele cu o greutate maxima data si daca are o pornire electrica
+     public static void conditiiMotosapa( ArrayList<Motosapa> motosapa, double greutateMaxima, boolean pornireElectrica){
+   for(int i=0;i<motosapa.size(); i++){
+       Motosapa m2= motosapa.get(i);
+       if(m2.getGreutate()<=greutateMaxima && m2.arePornireElectrica()==pornireElectrica)
+       { System.out.println(m2); }
+   }
+     }
+     
+     //metoda 2 pentru motosapa - motosape recomandate pentru suprafete mari
+     // conditii:   sa aiba puterea mai mare de 1600W + latime  > 45
+     
+     public static void MotosapaRecomandate(ArrayList<Motosapa> motosapa, double putereMinima, double latimeMinima){
+         for(int i=0; i<motosapa.size();i++){
+             Motosapa m3=motosapa.get(i);
+             if(m3.getPutere()>putereMinima && m3.getLatimeLucru()>latimeMinima){
+                 System.out.println(m3);
+             }
+         }
+     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
