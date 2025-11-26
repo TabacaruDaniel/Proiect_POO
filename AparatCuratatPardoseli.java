@@ -1,4 +1,5 @@
 package Proiect;
+import java.util.ArrayList;
 class AparatCuratatPardoseli extends Aparat {
     String CodIdentificare;
     String producator;
@@ -146,6 +147,15 @@ class AparatCuratatPardoseli extends Aparat {
         double cost = pretEuro * 0.05;
         r.produs = cost; // salvam rezultatul în obiectul Rezultat
         System.out.println("Mentenanța aparatului " + CodIdentificare + " costă aproximativ: " + cost + " euro");
+    }
+    public static void afiseazaDupaConditii(ArrayList<AparatCuratatPardoseli> lista, double pretMinim, boolean disponibil) {
+        System.out.println("Pardoseli care respectă condițiile:");
+        for (int i = 0; i < lista.size(); i++) {
+            AparatCuratatPardoseli p= lista.get(i); // ia obiectul din lista de la poz i si il da variabilei p
+            if (p.getPretEuro() >= pretMinim && p.getEsteDisponibil() == disponibil) {
+                System.out.println(p);
+            }
+        }
     }
 
 }

@@ -1,4 +1,5 @@
 package Proiect;
+import java.util.ArrayList;
 class AparatCuratatGeamuri extends Aparat{
     private String tipSolutieCuratare;
     private boolean functieAspirare;
@@ -144,6 +145,15 @@ class AparatCuratatGeamuri extends Aparat{
         // afisam costul pentru întretinerea aparatului
         System.out.println("Cheltuielile pentru întreținerea aparatului cu soluția "
                 + tipSolutieCuratare + " se ridică la " + r.produs + " euro.");
+    }
+    public static void afiseazaDupaConditii(ArrayList<AparatCuratatGeamuri> lista, int autonomieMinima, boolean aspirare) {
+        System.out.println("Geamuri care respectă condițiile:");
+        for (int i = 0; i < lista.size(); i++) {
+            AparatCuratatGeamuri g = lista.get(i); // obtin obiectul curent
+            if (g.getAutonomieBaterie() >= autonomieMinima && g.getFunctieAspirare() == aspirare) {
+                System.out.println(g);
+            }
+        }
     }
 
 }
