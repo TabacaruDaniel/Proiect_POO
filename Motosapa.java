@@ -103,7 +103,29 @@ public class Motosapa extends Aparat {
     //10
     public double getGarantie() { return garantie; }
     public void setGarantie(double garantie) { this.garantie = garantie; }
-
+/*
+ //sa se afiseze motosapele cu o greutate maxima data si daca are o pornire electrica
+     public static void conditiiMotosapa( ArrayList<Motosapa> motosapa, double greutateMaxima, boolean pornireElectrica){
+   for(int i=0;i<motosapa.size(); i++){
+       Motosapa m2= motosapa.get(i);
+       if(m2.getGreutate()<=greutateMaxima && m2.arePornireElectrica()==pornireElectrica)
+       { System.out.println(m2); }
+   }
+     }
+     
+     //metoda 2 pentru motosapa - motosape recomandate pentru suprafete mari
+     // conditii:   sa aiba puterea mai mare de 1600W + latime  > 45
+     
+     public static void MotosapaRecomandate(ArrayList<Motosapa> motosapa, double putereMinima, double latimeMinima){
+         for(int i=0; i<motosapa.size();i++){
+             Motosapa m3=motosapa.get(i);
+             if(m3.getPutere()>putereMinima && m3.getLatimeLucru()>latimeMinima){
+                 System.out.println(m3);
+             }
+         }
+     }
+}
+    */
     // metode abstracte
      @Override
     public void schimba_starea(rezultat a) {
