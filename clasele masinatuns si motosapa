@@ -271,3 +271,92 @@ public class Motosapa extends Aparat {
                 ", garantie=" + garantie + '\t' ;               
     }
 }
+// Metoda pentru vectorul manual- pt masina tuns iarba
+ // statice pt ca  main e static si apeleaza doar met statice
+        // conditiile sunt- sa aiba o putere mai mare sau egala cu cea ceruta + marca specificata
+   public static void conditiiMasinaTunsIarba(ArrayList<MasinaTunsIarba> masini, double putereMinima, String marcaCautata){
+ try{
+for(int i=0;i<masini.size();i++){
+        MasinaTunsIarba m1= masini.get(i); // ca (v[i]) sau (masinatunsiarba)v[i]  -- extrag ob!!
+        if(m1.getPutere()>=putereMinima && m1.getMarca().equals(marcaCautata)){  //equalsIgnoreCase
+            System.out.println(m1); }
+    }
+ }
+catch(NullPointerException e){
+System.out.println(" marca este nula");
+}
+finally
+{
+System.out.println("metoda s a incheiat!");
+  }
+}
+
+
+
+sau
+
+
+
+ if (masini == null) {
+        throw new NullPointerException("Lista de masini este NULL!");
+    }
+//metoda normala, si n main
+try {
+    conditiiMasinaTunsIarba(masini, 1500, "bosh");
+}
+catch (NullPointerException e) {
+    System.out.println("Eroare prinsa in main: " + e.getMessage());
+}
+// afisare crescatoare dupa putere a masinilor din marca bosh
+   public static void masiniBoshOrdCrescator(ArrayList<MasinaTunsIarba> masini,String marcaCeruta){
+        ArrayList<MasinaTunsIarba> filtrate = new ArrayList<>();
+
+    for (int i = 0; i < masini.size(); i++) {
+        MasinaTunsIarba m = masini.get(i);
+        if (m.getMarca().equals(marcaCeruta)) {   //
+            filtrate.add(m);
+        }
+    }
+    
+//  sort pt sortarea crescatoare
+   for(int i=0;i<filtrate.size()-1;i++){                                                                                                                                   // filtrate.sort((a, b) -> Double.compare(b.getPutere(), a.getPutere()));\
+      for(int j=i+1;j<filtrate.size();j++){
+          if(filtrate.get(i).getPutere()>filtrate.get(j).getPutere()){
+              MasinaTunsIarba aux= filtrate.get(i);
+              filtrate.set(i, filtrate.get(j));
+              filtrate.set(j, aux); 
+          }
+      } 
+   }
+                                                                                                                                                                                
+    System.out.println("\nMasini marca Bosh ordonate descrescator dupa putere:");
+    for (int i = 0; i < filtrate.size(); i++) {
+        System.out.println(filtrate.get(i));
+    }
+   }
+   
+   
+     //metoda pentru vector fct manual pt motosapa
+   
+   //sa se afiseze motosapele cu o greutate maxima data si daca are o pornire electrica
+     public static void conditiiMotosapa( ArrayList<Motosapa> motosapa, double greutateMaxima, boolean pornireElectrica){
+   for(int i=0;i<motosapa.size(); i++){
+       Motosapa m2= motosapa.get(i);
+       if(m2.getGreutate()<=greutateMaxima && m2.arePornireElectrica()==pornireElectrica)
+       { System.out.println(m2); }
+   }
+     }
+     
+     //metoda 2 pentru motosapa - motosape recomandate pentru suprafete mari
+     // conditii:   sa aiba puterea mai mare de 1600W + latime  > 45
+     
+     public static void MotosapaRecomandate(ArrayList<Motosapa> motosapa, double putereMinima, double latimeMinima){
+         for(int i=0; i<motosapa.size();i++){
+             Motosapa m3=motosapa.get(i);
+             if(m3.getPutere()>putereMinima && m3.getLatimeLucru()>latimeMinima){
+                 System.out.println(m3);
+             }
+         }
+     }
+}
+
