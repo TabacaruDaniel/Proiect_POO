@@ -1,17 +1,14 @@
 package ProiectPOO;
 import java.util.ArrayList;
-//import java.util.Scanner;
+import java.util.Scanner;
 
 public class Main {
 
 
     public static void main(String[] args) {
-      /*
+      
     Scanner sc = new Scanner(System.in); //creez un scanner
-    System.out.print("introdu puterea minima: ");  //citesc valorile din terminal
-    double putMin = sc.nextDouble(); // citeste de la tastatura un nr de tip double
-    conditiiMasinaTunsIarba(masini,putMin,"bosh");
-*/
+   
         
   // instante ale clasei
  MasinaTunsIarba m1 = new MasinaTunsIarba();
@@ -210,10 +207,14 @@ for(int i=0;i<motosapa.size();i++){
 
 
 //                        TESTARE METODE CU CONDITII
-
-
     System.out.println("\nMasini care indeplinesc conditiile(marca si putere specificate): "); 
-    conditiiMasinaTunsIarba(masini,1500,"bosh");
+    System.out.print("introdu puterea minima: ");  //citesc valorile din terminal
+    double putMin = sc.nextDouble(); // citeste de la tastatura un nr de tip double
+    conditiiMasinaTunsIarba(masini,putMin,"bosh");
+
+
+   // System.out.println("\nMasini care indeplinesc conditiile(marca si putere specificate): "); 
+   // conditiiMasinaTunsIarba(masini,1500,"bosh");
     masiniBoshOrdCrescator(masini,"bosh");
     
     
@@ -229,9 +230,11 @@ for(int i=0;i<motosapa.size();i++){
         // conditiile sunt- sa aiba o putere mai mare sau egala cu cea ceruta + marca specificata
    public static void conditiiMasinaTunsIarba(ArrayList<MasinaTunsIarba> masini, double putereMinima, String marcaCautata){
     for(int i=0;i<masini.size();i++){
-        MasinaTunsIarba m1= masini.get(i); // ca (v[i]) sau (masinatunsiarba)v[i]  -- extrag ob!!
-        if(m1.getPutere()>=putereMinima && m1.getMarca().equals(marcaCautata)){  //equalsIgnoreCase
+        MasinaTunsIarba m1= masini.get(i);      // ca (v[i]) sau (masinatunsiarba)v[i]  -- extrag ob!!
+        if(m1.getPutere()<-10 || m1.getPutere()>10){
+            if(!m1.getMarca().equals(marcaCautata)){     //equalsIgnoreCase
             System.out.println(m1); }
+        }
     }
  }
 // afisare crescatoare dupa putere a masinilor din marca bosh
@@ -249,8 +252,8 @@ for(int i=0;i<motosapa.size();i++){
       for(int j=i+1;j<filtrate.size();j++){
           if(filtrate.get(i).getPutere()>filtrate.get(j).getPutere()){
               MasinaTunsIarba aux= filtrate.get(i);
-              filtrate.set(i, filtrate.get(j));
-              filtrate.set(j, aux); 
+              filtrate.set(i, filtrate.get(j));  // pune j pe poz i
+              filtrate.set(j, aux);  // pun vechea valoare stocata in aux pe j
           }
       } 
    }
