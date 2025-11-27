@@ -104,7 +104,45 @@ public class MasinaTunsIarba extends Aparat {
     public String getTipMotor() { return tipMotor; }
     public void setTipMotor(String tipMotor) { this.tipMotor = tipMotor; }
 
-          
+       /*
+
+  public static void conditiiMasinaTunsIarba(ArrayList<MasinaTunsIarba> masini, double putereMinima, String marcaCautata){
+    for(int i=0;i<masini.size();i++){
+        MasinaTunsIarba m1= masini.get(i); // ca (v[i]) sau (masinatunsiarba)v[i]  -- extrag ob!!
+        if(m1.getPutere()>=putereMinima && m1.getMarca().equals(marcaCautata)){  //equalsIgnoreCase
+            System.out.println(m1); }
+    }
+ }
+// afisare crescatoare dupa putere a masinilor din marca bosh
+   public static void masiniBoshOrdCrescator(ArrayList<MasinaTunsIarba> masini,String marcaCeruta){
+        ArrayList<MasinaTunsIarba> filtrate = new ArrayList<>();
+    for (int i = 0; i < masini.size(); i++) {
+        MasinaTunsIarba m = masini.get(i);
+        if (m.getMarca().equals(marcaCeruta)) {   //
+            filtrate.add(m);
+        }
+    }
+    
+//  sort pt sortarea crescatoare
+   for(int i=0;i<filtrate.size()-1;i++){                                                                                                                                   // filtrate.sort((a, b) -> Double.compare(b.getPutere(), a.getPutere()));\
+      for(int j=i+1;j<filtrate.size();j++){
+          if(filtrate.get(i).getPutere()>filtrate.get(j).getPutere()){
+              MasinaTunsIarba aux= filtrate.get(i);
+              filtrate.set(i, filtrate.get(j));
+              filtrate.set(j, aux); 
+          }
+      } 
+   }
+                                                                                                                                                                                
+    System.out.println("\nMasini marca Bosh ordonate crescator dupa putere:");
+    for (int i = 0; i < filtrate.size(); i++) {
+        System.out.println(filtrate.get(i));
+    }
+   }
+   
+   
+
+    */
     // met toString
     @Override
     public String toString() {
