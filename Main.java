@@ -1,9 +1,17 @@
 package ProiectPOO;
 import java.util.ArrayList;
+//import java.util.Scanner;
+
 public class Main {
 
 
     public static void main(String[] args) {
+      /*
+    Scanner sc = new Scanner(System.in); //creez un scanner
+    System.out.print("introdu puterea minima: ");  //citesc valorile din terminal
+    double putMin = sc.nextDouble(); // citeste de la tastatura un nr de tip double
+    conditiiMasinaTunsIarba(masini,putMin,"bosh");
+*/
         
   // instante ale clasei
  MasinaTunsIarba m1 = new MasinaTunsIarba();
@@ -98,6 +106,7 @@ public class Main {
         System.out.println("\nAfisare motosape: ");
       for (int i = 0; i < listaMotosape.size(); i++) {
     System.out.println(listaMotosape.get(i));
+    
 }
     }
 }
