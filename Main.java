@@ -235,8 +235,8 @@ for(int i=0;i<motosapa.size();i++){
         }
     }
     
-// quick sort pt sortarea crescatoare
-   for(int i=0;i<filtrate.size()-1;i++){       // filtrate.sort((a, b) -> Double.compare(b.getPutere(), a.getPutere()));\
+//  sort pt sortarea crescatoare
+   for(int i=0;i<filtrate.size()-1;i++){                                                                                                                                   // filtrate.sort((a, b) -> Double.compare(b.getPutere(), a.getPutere()));\
       for(int j=i+1;j<filtrate.size();j++){
           if(filtrate.get(i).getPutere()>filtrate.get(j).getPutere()){
               MasinaTunsIarba aux= filtrate.get(i);
@@ -246,7 +246,7 @@ for(int i=0;i<motosapa.size();i++){
       } 
    }
                                                                                                                                                                                 
-    System.out.println("\nMasini marca Bosh ordonate descrescator dupa putere:");
+    System.out.println("\nMasini marca Bosh ordonate crescator dupa putere:");
     for (int i = 0; i < filtrate.size(); i++) {
         System.out.println(filtrate.get(i));
     }
