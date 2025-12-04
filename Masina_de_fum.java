@@ -1,8 +1,10 @@
 package ProiectPOO;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
 
-class Masina_de_fum extends Aparat {
+class Masina_de_fum extends Aparat implements Serializable {
     private String denumire;
     private float productivitate;
     private float putere;
@@ -76,20 +78,21 @@ class Masina_de_fum extends Aparat {
         }
         //if(stare_filtru> (cerinta/productivitate)) moment_oprire=1;
         if (stare_leduri != null) {
+            String mesaj="";
             Random rand = new Random();
             float[] defectiuni = new float[stare_leduri.length];
             for (int i = 0; i < stare_leduri.length; i++) {
-                defectiuni[i] = (rand.nextInt(10)/100)*(cerinta/productivitate);
+                defectiuni[i] = (rand.nextFloat(10)/100)*(cerinta/productivitate);
                 stare_leduri[i] -= defectiuni[i];}
             for(int i=0;i<stare_leduri.length;i++){
 
         if(stare_leduri[i] < 0) {
             stare_leduri[i] = 0;
-                    if (JOptionPane.showConfirmDialog(null, "Masinii de fum i s-au ars niste leduri\nDoriti sa schimbati ledul?", "Defectiune detectata", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                        cost_mentenanta(new Rezultat_masina_fum(false, 1,0 ,stare_leduri , 1, 1));
-                    }
+        }}
+                if (JOptionPane.showConfirmDialog(null, "Masinii de fum i s-au ars niste leduri\nDoriti sa schimbati ledul?", "Defectiune detectata", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    cost_mentenanta(new Rezultat_masina_fum(false, 1,0 ,stare_leduri , 1, 1));
                 }
-            }}
+            }
             if (volum_curent > (cerinta / 4000)) moment_oprire = 1;//la o ora de functionare sacul se umple cam 3 litri
             else {
                 moment_oprire = rotunjire((volum_curent * 4000) / cerinta, 9);
@@ -115,13 +118,15 @@ class Masina_de_fum extends Aparat {
         if(a.stare_leduri!=null){
             int pret_led=0;
             int n=0;
+            String mesaj="";
             for(int i=0;i<stare_leduri.length;i++){
         if(a.stare_leduri[i]<=0.0001) {
-            pret_led+=5;
+            pret_led += 5;
             n++;
-            stare_leduri[i]+=1;
-        }JOptionPane.showMessageDialog(null,"S-au ars "+n+" leduri, costul pentru a le inlocui este de "+pret_led+" lei");
-            }}
+            stare_leduri[i] += 1;
+
+        }}
+        JOptionPane.showMessageDialog(null,"S-au ars " + n + " leduri, costul pentru a le inlocui este de " + pret_led + " lei");}
         if(a.functionare_ramasa<=0.001) {
             JOptionPane.showMessageDialog(null,"Costul estimativ pentru reparatii este de "+pret/4);
             functionare_ramasa+=garantie_de_functionare*365/8;
@@ -158,7 +163,7 @@ class Masina_de_fum extends Aparat {
         this.pret = pret;
     }
 
-    public String toString() {
+    public String detalii() {
         String a = "";
         int numarObiecte=0;
         if(stare_leduri!=null) {
@@ -172,7 +177,7 @@ class Masina_de_fum extends Aparat {
                 + "\nMasina are un rezervor de "+capacitate_rezervor+"l, iar volumul de solutie ramas este de " + volum_curent + "l ";
     }
 
-    public String getDenumire() {
+    public String toString() {
         return denumire;
     }
 
@@ -273,4 +278,14 @@ class Masina_de_fum extends Aparat {
         else JOptionPane.showMessageDialog(null,mesaj);
     }
 
+    public static void saveList(ArrayList<Masina_de_fum> lista, String fileName) {
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(
+                new FileOutputStream(fileName))) {
+            oos.writeObject(lista);
+            System.out.println("Lista a fost salvată cu succes în " + fileName);
+        } catch (IOException e) {
+            System.err.println("Eroare la salvarea datelor în " + fileName + ": " + e.getMessage());
+        }
+    }
 }
