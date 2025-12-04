@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.ArrayList;
+import java.awt.event.*;
+
 
 public class GUIconditii extends JFrame {
 
@@ -149,6 +151,13 @@ public class GUIconditii extends JFrame {
         //pt fundal!!!!!!!!
       ((JComponent)tabelMasini.getParent()).setBackground(new Color(255, 230, 242));   // convertesc componenta din parinte in jcomponenet pt a putea schimba
       ((JComponent)tabelMotosape.getParent()).setBackground(new Color(255, 230, 242));
+
+       bMasini.setForeground(Color.MAGENTA);
+       bMotosapa.setForeground(Color.MAGENTA);
+       casetaGreutate.setForeground(Color.PINK);
+
+
+        
         setVisible(true);
     }
     
