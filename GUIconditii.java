@@ -114,26 +114,24 @@ public class GUIconditii extends JFrame {
 
         //                     ACTION LISTENERS- leg butoanele de metode
 
-        bMasini.addActionListener(e -> filtreazaMasini());
+       // bMasini.addActionListener(e -> filtreazaMasini());
         //sau
-        /*
+        
         
         bMasini.addActionListener(new ActionListener() {
-    @Override
     public void actionPerformed(ActionEvent e) {
         filtreazaMasini();
     }
-        */
+        }    
         
-        bMotosapa.addActionListener(e -> filtreazaMotosapa());
-         /*
+      //  bMotosapa.addActionListener(e -> filtreazaMotosapa());
         
-        bMotosapa.addActionListener(new ActionListener() {
-    @Override
+        
+        bMotosapa.addActionListener(new ActionListener() {  // interfata ce trb implementata cu override
     public void actionPerformed(ActionEvent e) {
         filtreazaMotosapa();
     }
-        */
+        } 
            // culori interfata
         panouMasiniSus.setBackground (new Color(255, 230, 242));
         panouConditiiMotosape.setBackground( new Color(255, 230, 242));
@@ -149,7 +147,7 @@ public class GUIconditii extends JFrame {
         bMotosapa.setBackground(new Color(255, 179, 217));
           
         //pt fundal!!!!!!!!
-      ((JComponent)tabelMasini.getParent()).setBackground(new Color(255, 230, 242));
+      ((JComponent)tabelMasini.getParent()).setBackground(new Color(255, 230, 242));   // convertesc componenta din parinte in jcomponenet pt a putea schimba
       ((JComponent)tabelMotosape.getParent()).setBackground(new Color(255, 230, 242));
         setVisible(true);
     }
