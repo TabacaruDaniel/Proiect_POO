@@ -1,8 +1,14 @@
 package ProiectPOO;
 import javax.swing.JOptionPane;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+import java.io.IOException;
 
-class Aspirator extends Aparat {
+class Aspirator extends Aparat implements Serializable{
     private String denumire;
     private float productivitate;
     private float alimentare;
@@ -150,7 +156,7 @@ class Aspirator extends Aparat {
         this.pret=pret;
     }
 
-    public String toString() {
+    public String detalii() {
 //        return String.format(
 //                "Aspiratorul se numeste %s, puterea aspiratorului este de %.0f W\nsacul aspiratorului are volum de %.5f l dintre care" +
 //                        " disponibili %.5f l \niar pretul aspiratorului este de %.5f lei ",
@@ -163,7 +169,7 @@ class Aspirator extends Aparat {
                 + capacitate_sac + "l dintre care disponibili " + volum_curent + "l \niar pretul aspiratorului este de "+pret+" lei";
     }
 
-    public String getDenumire() {
+    public String toString() {
         return denumire;
     }
 
@@ -260,5 +266,17 @@ class Aspirator extends Aparat {
     if(mesaj.equals("")) JOptionPane.showMessageDialog(null,"nu s-a gasi un aspirator care sa respecte cerintele");
     else JOptionPane.showMessageDialog(null,mesaj);
 }
+    public static void saveList(ArrayList<Aspirator> lista, String fileName) {
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(
+                new FileOutputStream(fileName))) {
+            oos.writeObject(lista);
+            System.out.println("Lista a fost salvată cu succes în " + fileName);
+        } catch (IOException e) {
+            System.err.println("Eroare la salvarea datelor în " + fileName + ": " + e.getMessage());
+        }
+    }
 
 }
+
+
