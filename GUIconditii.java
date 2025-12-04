@@ -155,7 +155,25 @@ public class GUIconditii extends JFrame {
        bMasini.setForeground(Color.MAGENTA);
        bMotosapa.setForeground(Color.MAGENTA);
        casetaGreutate.setForeground(Color.PINK);
+    /*
+   buton stergere:
+            JButton bResetare = new JButton("Reseteaza tabelele");
+            panouMasiniSus.add(bResetare);
+            bResetare.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                modelMasini.setRowCount(0);
+                modelMotosape.setRowCount(0);
+    }
+});
+    combobox
 
+ String[] marci = {"Bosh", "Honda", "Makita", "Ruris", "Stihl"};
+JComboBox<String> comboMarca = new JComboBox<>(marci);
+panouMasiniSus.add(comboMarca);
+String marcaSelectata = (String) comboMarca.getSelectedItem();
+
+
+        */
 
         
         setVisible(true);
