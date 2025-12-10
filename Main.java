@@ -1,6 +1,12 @@
 package ProiectPOO;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class Main {
 
@@ -78,7 +84,6 @@ public class Main {
 
 
 
-  import java.util.ArrayList;
 
         ArrayList<Object> listaMasiniTaiatIarba = new ArrayList<>();
 
@@ -89,8 +94,10 @@ public class Main {
         System.out.println("\n Afisare masini  taiat iarba: ");
     for (int i = 0; i < listaMasiniTaiatIarba.size(); i++) {
     System.out.println(listaMasiniTaiatIarba.get(i));
+    
 }
-
+   salveazaMasiniText(masini, "masini.txt");
+   salveazaMotosapeText(motosapa, "motosape.txt");
 
   // pt motosape
 
@@ -262,6 +269,10 @@ for(int i=0;i<motosapa.size();i++){
     for (int i = 0; i < filtrate.size(); i++) {
         System.out.println(filtrate.get(i));
     }
+
+
+
+       
    }
    
    
@@ -286,6 +297,29 @@ for(int i=0;i<motosapa.size();i++){
                  System.out.println(m3);
              }
          }
+     }
+ public static void salveazaMasiniText(ArrayList<MasinaTunsIarba> masini, String fisier) {
+    try (PrintWriter pw = new PrintWriter(new FileWriter(fisier))) {
+       for (int i = 0; i < masini.size(); i++) {
+            pw.println(masini.get(i).toString());
+          //  pw.print('\t');
+        }
+        System.out.println("masinile au fost salvate in f text.");
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+     
+     public static void salveazaMotosapeText(ArrayList<Motosapa> motosape, String fisier) {
+    try (PrintWriter pw = new PrintWriter(new FileWriter(fisier))) {
+        for (int i=0;i<motosape.size();i++) {
+            pw.println(motosape.get(i).toString());
+        }
+        System.out.println("motosapele au fost salvate in fisier text.");
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
      }
 }
 
