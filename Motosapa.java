@@ -1,6 +1,9 @@
 package ProiectPOO;
+import java.io.*;
 
-public class Motosapa extends Aparat {
+
+
+public class Motosapa extends Aparat implements Serializable {
     // datele membre: 
     
     private String marca;
