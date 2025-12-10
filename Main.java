@@ -8,7 +8,7 @@ import javax.swing.JScrollPane;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class Main {
+public class Aparat {
 
 
     public static void main(String[] args) {
