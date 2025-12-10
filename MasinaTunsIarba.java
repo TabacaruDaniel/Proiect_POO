@@ -1,6 +1,10 @@
 package ProiectPOO;
+import java.io*;
 
-public class MasinaTunsIarba extends Aparat {
+
+
+
+public class MasinaTunsIarba extends Aparat implements Serializable {
     // datele membre
    
     private String marca;
