@@ -304,9 +304,11 @@ for(int i=0;i<motosapa.size();i++){
             pw.println(masini.get(i).toString());
           //  pw.print('\t');
         }
-        System.out.println("masinile au fost salvate in f text.");
+        System.out.println("masinile au fost salvate");
     } catch (Exception e) {
-        e.printStackTrace();
+       System.out.println("nu s a putut scrie in fisier");
+
+
     }
 }
 
@@ -316,9 +318,9 @@ for(int i=0;i<motosapa.size();i++){
         for (int i=0;i<motosape.size();i++) {
             pw.println(motosape.get(i).toString());
         }
-        System.out.println("motosapele au fost salvate in fisier text.");
+        System.out.println("motosapele au fost salvate");
     } catch (Exception e) {
-        e.printStackTrace();
+        System.out.println("nu s a putut scrie in fisier");
     }
      }
 }
